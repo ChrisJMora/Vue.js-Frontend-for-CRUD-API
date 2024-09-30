@@ -13,7 +13,7 @@
                             <a href="/" class="nav-link">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/api/create" class="nav-link">Agregar usuario</a>
+                            <a href="/add" class="nav-link">Agregar usuario</a>
                         </li>
                     </ul>
                 </div>

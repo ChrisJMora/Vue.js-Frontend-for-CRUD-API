@@ -60,9 +60,10 @@ export default {
     data() {
         return {
             user: {
-                id: '',
-                name: '',
-                email: ''
+                firstName: '',
+                lastName: '',
+                email: '',
+                password: ''
             }
         }
     },
