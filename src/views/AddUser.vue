@@ -6,32 +6,39 @@
             <div class="mx-auto w-25" style="max-width: 100%;">
                 <h2 class="text-center mv-3">Agregar usuario</h2>
                 <form @submit.prevent="addUser">
+                    <!--username-->
+                    <div class="row">
+                        <div class="col-md-12 form-group mb-3">
+                            <label for="username" class="form-label">Nombre de usuario</label>
+                            <input type="text" name="username" id="username" class="form-control" required v-model="client.username">
+                        </div>
+                    </div>
                     <!--first-name-->
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">
                             <label for="firstName" class="form-label">Nombre</label>
-                            <input type="text" name="firstName" id="firstName" class="form-control" required v-model="user.firstName">
+                            <input type="text" name="firstName" id="firstName" class="form-control" required v-model="client.firstName">
                         </div>
                     </div>
                     <!--last-name-->
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">
                             <label for="lastName" class="form-label">Apellido</label>
-                            <input type="text" name="lastName" id="lastName" class="form-control" required v-model="user.lastName">
+                            <input type="text" name="lastName" id="lastName" class="form-control" required v-model="client.lastName">
                         </div>
                     </div>
                     <!--email-->
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">
                             <label for="email" class="form-label">Correo electrónico</label>
-                            <input type="email" name="email" id="email" class="form-control" required v-model="user.email">
+                            <input type="email" name="email" id="email" class="form-control" required v-model="client.email">
                         </div>
                     </div>
                     <!--password-->
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">
                             <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" name="password" id="password" class="form-control" required v-model="user.password">
+                            <input type="password" name="password" id="password" class="form-control" required v-model="client.password">
                         </div>
                     </div>
                     <!--submit-->
@@ -59,7 +66,7 @@ export default {
 
     data() {
         return {
-            user: {
+            client: {
                 firstName: '',
                 lastName: '',
                 email: '',
@@ -70,15 +77,15 @@ export default {
 
     methods: {
         addUser() {
-            fetch('http://localhost:8082/api/create', {
+            fetch('http://localhost:8082/api/clients/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(this.user)
+                body: JSON.stringify(this.client)
             })
-            .then(data => {
-                console.log(data)
+            .then(response => {
+                console.log(response)
                 this.$router.push("/")
             })
         }
