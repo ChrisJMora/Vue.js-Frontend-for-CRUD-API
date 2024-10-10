@@ -15,9 +15,22 @@
                         <li class="nav-item">
                             <a href="/add" class="nav-link">Agregar usuario</a>
                         </li>
+                        <!-- Botón de Cerrar sesión -->
+                        <button class="btn btn-danger" @click="logout">Cerrar sesión</button>
                     </ul>
                 </div>
             </div>
         </nav>
     </main>
 </template>
+
+<script>
+export default {
+  methods: {
+    logout() {
+      localStorage.setItem('isAuthenticated', 'false');
+      this.$router.push('/auth');
+    }
+  }
+}
+</script>
